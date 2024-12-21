@@ -1,8 +1,0 @@
-<Directory "/images">
-    Require all denied
-</Directory>
-
-ErrorDocument 403 /403.html
-
-<FilesMatch "robots\.php">
- AllowDeny,
