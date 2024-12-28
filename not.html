@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>إشعارات الويب للجوال</title>
+</head>
+<body>
+    <h1>إشعار يعمل على جميع الأجهزة</h1>
+    <button id="notifyButton">إرسال إشعار</button>
+
+    <script>
+        document.getElementById('notifyButton').addEventListener('click', function () {
+            if (Notification.permission === 'default') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        sendNotification();
+                    } else {
+                        console.log('تم رفض الإذن للإشعارات.');
+                    }
+                });
+            } else if (Notification.permission === 'granted') {
+                sendNotification();
+            } else {
+                console.log('تم رفض الإذن للإشعارات.');
+            }
+        });
+
+        function sendNotification() {
+            // الإشعار البسيط المتوافق مع الجوال
+            let notification = new Notification('إشعار جديد!', {
+                body: 'هذا إشعار بسيط يعمل على جميع الأجهزة.',
+                icon: 'images/notification-icon.png' // الأيقونة الصغيرة
+            });
+
+            // عند النقر على الإشعار
+            notification.onclick = function () {
+                window.open('https://example.com'); // افتح رابط عند النقر
+            };
+        }
+    </script>
+</body>
+</html>
