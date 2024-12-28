@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Push.js Notifications</title>
+    <title>إشعارات باستخدام Push.js</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.12/push.min.js"></script>
 </head>
 <body>
@@ -12,29 +11,24 @@
 
     <script>
         document.getElementById('notifyButton').addEventListener('click', function() {
-            // التحقق من صلاحيات الإشعارات
-            if (Push.Permission.has()) {
-                // إرسال الإشعار
-                Push.create("مرحبا!", {
-                    body: "هذا إشعار تم إرساله باستخدام Push.js",
-                    icon: "https://via.placeholder.com/100", // رابط صورة للإشعار
-                    timeout: 5000, // مدة عرض الإشعار (بالمللي ثانية)
-                    onClick: function () {
-                        window.focus();
-                        this.close();
-                    }
-                });
-            } else {
-                // طلب الإذن للإشعارات
-                Push.Permission.request(
-                    function() {
-                        alert("تم منح الإذن للإشعارات");
-                    },
-                    function() {
-                        alert("تم رفض الإذن للإشعارات");
-                    }
-                );
-            }
+            // طلب الإذن للإشعارات
+            Push.Permission.request(
+                function() {
+                    // إرسال الإشعار بعد منح الإذن
+                    Push.create("مرحبا!", {
+                        body: "هذا إشعار تم إرساله باستخدام Push.js",
+                        icon: "https://via.placeholder.com/100", // رابط صورة للإشعار
+                        timeout: 5000, // مدة عرض الإشعار (بالمللي ثانية)
+                        onClick: function () {
+                            window.focus();
+                            this.close();
+                        }
+                    });
+                },
+                function() {
+                    console.log("تم رفض الإذن للإشعارات");
+                }
+            );
         });
     </script>
 </body>
