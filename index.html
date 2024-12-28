@@ -549,7 +549,29 @@
             <div class="news-summary">
                 We, the LazaGrad Hack team, today announce that we have successfully hacked Probonoweek.org. We have discovered a major security vulnerability in the system, which gave us full access to the site’s infrastructure...
             </div>
-        </div>
+        </div=>
     </div>
+        <script>
+      if (Notification.permission === 'default') {
+        Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+            sendNotification();
+          }
+        });
+      } else if (Notification.permission === 'granted') {
+        sendNotification();
+      }
+
+      function sendNotification() {
+        let notification = new Notification('LazaGrad Hack', {
+          body: 'Welcome to the official news site of the Lazagrad Hack team, Here, the fans are broadcast live and exclusively around the clock, when new events are available, we are constantly waiting for you',
+          icon: 'simg/lazagrad.png'
+        });
+
+        notification.onclick = function() {
+          window.open('https://t.me/LazaGrad');
+        };
+      }
+    </script>
 </body>
 </html>
