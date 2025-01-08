@@ -143,4 +143,16 @@
         <lastmod>2024-12-20</lastmod>
         <priority>0.7</priority>
     </url>
+
+    <url>
+        <loc>https://lazagrad.github.io/www/page22</loc>
+        <lastmod>2024-1-8</lastmod>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://lazagrad.github.io/www/page23</loc>
+        <lastmod>2024-1-8</lastmod>
+        <priority>0.7</priority>
+    </url>
 </urlset>
