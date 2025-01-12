@@ -7,6 +7,12 @@
     </url>
 
     <url>
+        <loc>https://lazagrad.github.io/www/images</loc>
+        <lastmod>2024-12-20</lastmod>
+        <priority>1.0</priority>
+    </url>
+
+    <url>
         <loc>https://lazagrad.github.io/www/simg/lazagrad.png</loc>
         <lastmod>2024-12-20</lastmod>
         <priority>0.8</priority>
